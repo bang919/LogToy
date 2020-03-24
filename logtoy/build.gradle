@@ -1,4 +1,17 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+//  ./gradlew clean build bintrayUpload -PbintrayUser=onwardsmg -PbintrayKey=4f0aada8add713fea689f3bb47fdad242c791ffd -PdryRun=false
+    userOrg = 'onwardsmg'//bintray.com用户名
+    repoName = 'onwardsmaven'//Maven Repository Name
+    groupId = 'com.onwardsmediagroup'//jcenter上的路径
+    artifactId = 'LogToy'//项目名称  //compile 'com.onwardsmediagroup:LogToy:1.0.0'
+
+    publishVersion = '1.0.00'//版本号
+    desc = 'Debug模式不限时HttpLogging'//描述，不重要
+    website = 'https://www.onwardsmediagroup.com'//网站，最好有，不重要
+}
 
 android {
     compileSdkVersion 29

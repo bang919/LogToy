@@ -39,7 +39,7 @@
             android:value="500" />   <!--远程打印时，日志上报间隔，单位毫秒-->
         <meta-data
             android:name="ulog.remote_url"
-            android:value="http://192.168.123.96:8082/" />  <!--远程日志服务器地址，就是uconsole监听的地址-->
+            android:value="http://120.78.147.166:8082/" />  <!--远程日志服务器地址，就是uconsole监听的地址-->
     </application>
 
 </manifest>
