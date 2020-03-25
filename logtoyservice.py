@@ -39,78 +39,17 @@ import web
 web.config.debug = False
 
 urls = (
-	'/','index'
+	'/', 'index',
+	'/clear', 'clear'
 )
 
 localLogs = ""
 
-
-class index:
-
+class clear:
 	def GET(self):
-
-		htmlFormat = "<html><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" /><head><title></title></head><body>%s   <script type=\"text/javascript\">function myrefresh(){window.location.reload();window.scrollTo(0,document.body.scrollHeight);}setTimeout('myrefresh()',1000); </script></body></html>"
 		global localLogs
-		return htmlFormat % localLogs
-
-
-	def POST(self):
-
-		data = web.data()
-		data = data.decode('utf-8', 'ignore')
-
-		logs = json.loads(data).get('log')
-		if isinstance(logs, str):
-			if(logs.startswith("{")): #App crash Error
-				logs = "["+logs+"]"
-			logs = json.loads(logs)
-
-		print(logs)
-		for log in logs:
-			if 'stack' not in log:
-				log['stack'] = " "
-			color = '#808080'
-			if log['level'] == 'INFO':
-				color = '#008000'
-			elif log['level'] == 'WARNING':
-				color = '#FFA500'
-			elif log['level'] == 'ERROR':
-				color = '#FF0000'
-
-			strLog = '<div style="color:%s">%s  %s: [%s] %s </div>' % (color, log['time'],log['level'], log['tag'], log['msg'])
-
-			stacks = log['stack'].split('\n')
-			strLog = strLog + ('<div color="%s">' % color)
-			for s in stacks:
-				strLog = strLog + ('<div>%s</div>' % (s.strip()))
-
-			strLog = strLog + '</div>'
-
-			global localLogs
-			localLogs = localLogs + strLog
-
-		return ""
-
-
-if __name__ == '__main__':
-
-	app = web.application(urls, globals())
-	app.run()
-
-
-import sys
-import argparse
-import stat
-import json
-import web
-
-web.config.debug = False
-
-urls = (
-	'/','index'
-)
-
-localLogs = ""
+		localLogs = ""
+		return 'ok'
 
 
 class index:
