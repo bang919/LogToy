@@ -8,8 +8,8 @@ publish {
     groupId = 'com.onwardsmediagroup'//jcenter上的路径
     artifactId = 'LogToy'//项目名称  //compile 'com.onwardsmediagroup:LogToy:1.0.0'
 
-    publishVersion = '1.0.00'//版本号
-    desc = 'Debug模式不限时HttpLogging'//描述，不重要
+    publishVersion = '1.0.01'//版本号
+    desc = '删掉了logToy一些无关紧要的东西'//描述，不重要
     website = 'https://www.onwardsmediagroup.com'//网站，最好有，不重要
 }
 
